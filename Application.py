@@ -2,11 +2,8 @@ import streamlit as st
 import pandas as pd
 from bs4 import BeautifulSoup
 from requests import get
-import warnings
-from plotly import express as px
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
-import os
 import seaborn as sns
 
 st.markdown("""
@@ -43,7 +40,6 @@ def charge(data, titre, indice) :
         st.subheader('INFORMATIONS RELATIVES AU TABLEAU')
         st.write('DIMENSIONS DU TABLEAU : ' + str(data.shape[0]) + '  LIGNES  ET  ' + str(data.shape[1]) + ' COLONNES')
         st.dataframe(data)
-        sns.pairplot(data)
 
 # définir quelques styles liés aux box
 st.markdown('''<style> .stButton>button {
@@ -196,25 +192,18 @@ with st.form('RECHERCHE D''INFORMATION'):
 st.markdown("<h3 style='text-align: center; color: black;'>LES DONNEES NETTOYEES ET SAUVEGARDEES</h3>", unsafe_allow_html=True)
 charge(pd.read_csv('data/Dn/Appartements_meubles.csv'), 'APPARTEMENTS MEUBLES', '1')
 charge(pd.read_csv('data/Dn/Appartements_a_louer.csv'), 'APPARTEMENTS A LOUER', '2')
-charge(pd.read_csv('data/Dn/Terrains.csv'), 'TERRAINS A LOUER', '3')
+charge(pd.read_csv('data/Dn/Terrains.csv'), 'LES TERRAINS A LOUER', '3')
 
 
 st.markdown("<h3 style='text-align: center; color: black;'>LES DONNEES NON NETTOYES ET SAUVEGARDEES</h3>", unsafe_allow_html=True)
 
 charge(pd.read_csv('data/Db/Appartements_meubles.csv'), 'APPARTEMENTS MEUBLES', '4')
 charge(pd.read_csv('data/Db/Appartements_a_louer.csv'), 'APPARTEMENTS A LOUER', '5')
-charge(pd.read_csv('data/Db/Terrains.csv'), 'TERRAINS A LOUER', '6')    
+charge(pd.read_csv('data/Db/Terrains.csv'), 'LES TERRAINS A LOUER', '6')    
 st.write('                        ')
 
 
 st.markdown("<h4 style='text-align: center; color: black;'>FORMULAIRE  D'EVALUATION  DU  PROJET</h4>", unsafe_allow_html=True)
-st.markdown(""" <iframe src=https://ee.kobotoolbox.org/i/rgVkHnsd width="800" height="600"></iframe>""", unsafe_allow_html=True)
+st.markdown(""" <iframe src=https://ee.kobotoolbox.org/i/sL9x0A3l width="800" height="600"></iframe>""", unsafe_allow_html=True)
 
 # Les graphes
-DATA=pd.read_csv('data/Dn/Appartements_a_louer.csv')
-for d in DATA.select_dtypes('number').columns:
-    fig, axes = plt.subplots(1,2,figsize=(12,10))
-    sns.histplot(DATA[d],bins=20,ax=axes[0])
-    sns.boxplot(DATA[d],ax=axes[1])
-    # other plotting actions...
-    plt.show()
