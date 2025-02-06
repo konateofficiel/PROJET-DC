@@ -175,16 +175,16 @@ with st.form('RECHERCHE D''INFORMATION'):
     Bouton=st.form_submit_button('Chercher les resultats')
     if Bouton:
         st.markdown("<h4 style='text-align: enter; color=red;'>LES DONNEES TROUVEES SUR LE WEB PAR WEB SCRAPER</h4>",unsafe_allow_html=True)
-        #if Option.upper()=='APPARTEMENTS MEUBLES':
+        if Option#.upper()=='APPARTEMENTS MEUBLES':
             meubles=appartmeubles(int(nombre))
             st.markdown("<h5 style='text-align: enter; color=blue;'>1-LES APPARTEMENTS MEUBLES</h5>",unsafe_allow_html=True)
             st.dataframe(meubles)
-       # elif Option.upper()=='APPARTEMENTS A LOUER':
+        elif Option#.upper()=='APPARTEMENTS A LOUER':
            # appart=appart_a_louer(int(nombre))
             st.markdown("<h5 style='text-align: enter; color=blue;'>2-LES APPARTEMENTS A LOUER</h5>",unsafe_allow_html=True)
             st.dataframe(appart)
-        #else:
-            #terrain=terrains(int(nombre))
+        else:
+            terrain=terrains(int(nombre))
             st.markdown("<h5 style='text-align: enter; color=blue;'>2-LES APPARTEMENTS A LOUER</h5>",unsafe_allow_html=True)
             st.dataframe(terrain)
 
