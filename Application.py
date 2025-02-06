@@ -58,7 +58,7 @@ def terrains(n):
         la_liste=[]  
         url2=f'https://www.expat-dakar.com/terrains-a-vendre?page={i}'
         page=get(url2)
-        soup=BeautifulSoup(page.text,'html.parser')
+        soup=BeautifulSoup(page.content,'html.parser')
         soup2=soup.find_all('div',class_= 'listings-cards__list-item')
 
         for links in soup2:  
