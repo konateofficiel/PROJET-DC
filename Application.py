@@ -171,7 +171,7 @@ with st.sidebar.header('choix de database'):
 with st.form('RECHERCHE D''INFORMATION'):
     Option = st.selectbox("SELECTIONNEZ UNE PAGE A SUIVRE POUR LES INFOS",("TERRAINS A VENDRES", "APPARTEMENTS A LOUER", "APPARTEMENTS MEUBLES"))
 
-    nombre=st.int_input('ENTRER LE NOMBRE DE PAGES POUR LES INFORMATIONS')
+    nombre=st.text_input('ENTRER LE NOMBRE DE PAGES POUR LES INFORMATIONS')
     Bouton=st.form_submit_button('Chercher les resultats')
     if Bouton:
         st.markdown("<h4 style='text-align: enter; color=red;'>LES DONNEES TROUVEES SUR LE WEB PAR WEB SCRAPER</h4>",unsafe_allow_html=True)
