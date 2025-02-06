@@ -209,7 +209,7 @@ st.markdown(""" <iframe src=https://ee.kobotoolbox.org/i/sL9x0A3l width="800" he
 # Les graphes
 Echec=data[df1['Prix']>200000 ]
 Succes=data[df1['Prix']<200000]
-for col in df1[['N_chambre','Superficie']]
+for col in df1[['N_chambre','Superficie']]:
   plt.figure()
   sns.histplot(Echec[col],bins=20,label='Echec',color='red',kde=True)
   sns.histplot(Succes[col],bins=20,label='Succès',color='blue',kde=True)
