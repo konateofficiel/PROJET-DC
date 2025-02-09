@@ -17,16 +17,6 @@ Cette application est conçu pour collecter les données sur le site [Expat-Daka
 --[Les terrains à vendre](https://www.expat-dakar.com/terrains-a-vendre)
 
 """)
-url='https://sn.coinafrique.com/categorie/chiens?page=2'
-soup=get(url)
-soup1=BeautifulSoup(soup.content,'html.parser')
-conteners=soup1.find_all('div',class_='col s6 m4 l3')
-contener= conteners[0]
-url1=contener.find('a',class_="card-image ad__card-image waves-block waves-light")['href']
-infos=get('https://sn.coinafrique.com'+url1)
-info=BeautifulSoup(infos.content,'html.parser')
-Prix=info.find('p',class_='price').text
-st.write(Prix)
 
 df1=pd.read_csv('data/Dn/Appartements_a_louer.csv')
 df2=pd.read_csv('data/Dn/Appartements_meubles.csv')
