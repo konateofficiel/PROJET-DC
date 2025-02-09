@@ -213,5 +213,5 @@ st.markdown(""" <iframe src=https://ee.kobotoolbox.org/i/sL9x0A3l width="800" he
 # Les graphes
 for col in df1[['N_chambre','Superficie']]:
   plt.figure(figsize=(6,4))
-  sns.histplot(df1[col],bins=20)
+  sns.barplot(df1[col],bins=20)
   plt.show()
