@@ -7,6 +7,7 @@ from matplotlib import pyplot as plt
 import seaborn as sns
 from PIL import Image
 
+Video=open('video.mp4','rb')
 img=Image.open('DIT.png')
 st.image(img)
 
@@ -225,3 +226,4 @@ for col in df1[['N_chambre','Superficie']]:
   plt.figure(figsize=(6,4))
   sns.histplot(df1[col],bins=20)
   plt.show()
+st.video(Video.read())
