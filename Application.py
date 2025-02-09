@@ -217,12 +217,7 @@ st.markdown("<h4 style='text-align: center; color: black;'>FORMULAIRE  D'EVALUAT
 st.markdown(""" <iframe src=https://ee.kobotoolbox.org/i/sL9x0A3l width="800" height="600"></iframe>""", unsafe_allow_html=True)
 
 # Les graphes
-Echec=df1[df1['Prix']>200000 ]
-Succes=df1[df1['Prix']<200000]
 for col in df1[['N_chambre','Superficie']]:
   plt.figure()
-  sns.histplot(Echec[col],bins=20,label='Echec',color='red',kde=True)
-  sns.histplot(Succes[col],bins=20,label='Succès',color='blue',kde=True)
-  plt.legend()
-  plt.title(f'COMPARAISON DES DISTRIBUTIONS POUR {col}')
-  plt.show()
+  st.histplot(df1[col],bins=20)
+  st.show()
