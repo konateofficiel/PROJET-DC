@@ -3,7 +3,7 @@ import pandas as pd
 from bs4 import BeautifulSoup
 from requests import get
 from mpl_toolkits.mplot3d import Axes3D
-import matplotlib.pyplot as plt
+from matplotlib import pyplot as plt
 import seaborn as sns
 from PIL import Image
 
@@ -222,6 +222,6 @@ st.markdown(""" <iframe src=https://ee.kobotoolbox.org/i/sL9x0A3l width="800" he
 
 # Les graphes
 for col in df1[['N_chambre','Superficie']]:
-  plt.figure()
+  plt.figure(figsize=(6,4))
   sns.histplot(df1[col],bins=20)
   plt.show()
