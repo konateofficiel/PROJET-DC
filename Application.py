@@ -5,6 +5,10 @@ from requests import get
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 import seaborn as sns
+from PIL import Image
+
+img=Image.open('DIT.png')
+st.image(img)
 
 st.markdown("""
 Cette application est conçu pour collecter les données sur le site [Expat-Dakar](https://www.expat-dakar.com/)
