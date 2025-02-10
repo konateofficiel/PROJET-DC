@@ -206,10 +206,6 @@ charge(pd.read_csv('data/Db/Appartements_a_louer.csv'), 'APPARTEMENTS A LOUER', 
 charge(pd.read_csv('data/Db/Terrains.csv'), 'LES TERRAINS A LOUER', '6')    
 st.write('                        ')
 
-
-st.markdown("<h4 style='text-align: center; color: black;'>FORMULAIRE  D'EVALUATION  DU  PROJET</h4>", unsafe_allow_html=True)
-st.markdown(""" <iframe src=https://ee.kobotoolbox.org/i/sL9x0A3l width="800" height="600"></iframe>""", unsafe_allow_html=True)
-
 # Les graphes
 DATA=pd.read_csv('data/Dn/Appartements_a_louer.csv')
 DATA2=pd.read_csv('data/Dn/Appartements_meubles.csv')
@@ -265,3 +261,7 @@ ax.hist(DATA3['Prix'], bins=20)
 ax.set_xlabel('Prix')
 ax.set_ylabel('Frequence')
 st.pyplot(fig)
+
+#Le formulaire
+st.markdown("<h4 style='text-align: center; color: black;'>FORMULAIRE  D'EVALUATION  DU  PROJET</h4>", unsafe_allow_html=True)
+st.markdown(""" <iframe src=https://ee.kobotoolbox.org/i/sL9x0A3l width="800" height="600"></iframe>""", unsafe_allow_html=True)
