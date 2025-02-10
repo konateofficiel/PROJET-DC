@@ -211,7 +211,57 @@ st.markdown("<h4 style='text-align: center; color: black;'>FORMULAIRE  D'EVALUAT
 st.markdown(""" <iframe src=https://ee.kobotoolbox.org/i/sL9x0A3l width="800" height="600"></iframe>""", unsafe_allow_html=True)
 
 # Les graphes
-for col in df1[['N_chambre','Superficie']]:
-  plt.figure(figsize=(6,4))
-  sns.histplot(df1[col],bins=20)
-  plt.show()
+DATA=pd.read_csv('data/Dn/Appartements_a_louer.csv')
+DATA2=pd.read_csv('data/Dn/Appartements_meubles.csv')
+DATA3=pd.read_csv('data/Dn/Terrains.csv')
+# Les graphes sur les appartements à louer
+st.markdown("<h3 style='text-align: center; color: black;'>LES GRAPHES SUR LES APPARTEMENTS A LOUER</h3>", unsafe_allow_html=True)
+fig = plt.figure(figsize=(10,5), dpi=100)
+ax = fig.add_subplot(111, projection='3d')
+ax.scatter(DATA['Prix'], DATA['Superficie'], DATA['N_chambre'], c='r', marker='o')
+ax.set_xlabel('Prix')
+ax.set_ylabel('Superficie')
+ax.set_zlabel('N_chambre')
+st.pyplot(fig)
+# histogramme sur les appartements à louer
+fig = plt.figure(figsize=(10,5), dpi=60, facecolor='w', edgecolor='k')
+ax = fig.add_subplot(111)
+ax.hist(DATA['Prix'], bins=20)
+ax.set_xlabel('Prix')
+ax.set_ylabel('Frequence')
+st.pyplot(fig)
+
+# les dashboards sur les appartements meublés
+st.markdown("<h3 style='text-align: center; color: black;'>LES GRAPHES SUR LES APPARTEMENTS MEUBLES</h3>", unsafe_allow_html=True)
+fig = plt.figure(figsize=(10,5), dpi=100)
+ax = fig.add_subplot(111, projection='3d')
+ax.scatter(DATA2['prix'], DATA2['Superficie'], DATA2['N_chambre'], c='r', marker='o')
+ax.set_xlabel('prix')
+ax.set_ylabel('Superficie')
+ax.set_zlabel('N_chambre')
+st.pyplot(fig)
+
+# les histogrammes sur les appartements meublés
+fig = plt.figure(figsize=(10,5), dpi=100)
+ax = fig.add_subplot(111)
+ax.hist(DATA2['prix'], bins=20)
+ax.set_xlabel('prix')
+ax.set_ylabel('Frequence')
+st.pyplot(fig)
+
+# Les graphes sur les terrains à vendre
+st.markdown("<h3 style='text-align: center; color: black;'>LES GRAPHES SUR LES TERRAINS A VENDRE</h3>", unsafe_allow_html=True)
+fig = plt.figure(figsize=(10,5), dpi=100)
+ax = fig.add_subplot(111, projection='3d')
+ax.scatter(DATA3['Prix'], DATA3['Superficie'], c='r', marker='o')
+ax.set_xlabel('Prix')
+ax.set_ylabel('Superficie')
+st.pyplot(fig)
+
+# les histogrammes sur les terrains à vendre
+fig = plt.figure(figsize=(10,5), dpi=100)
+ax = fig.add_subplot(111)
+ax.hist(DATA3['Prix'], bins=20)
+ax.set_xlabel('Prix')
+ax.set_ylabel('Frequence')
+st.pyplot(fig)
