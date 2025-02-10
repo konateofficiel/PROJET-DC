@@ -27,9 +27,8 @@ def trie(df,ad):
         adresse=st.sidebar.multiselect("Choisissez une adresse où vous rechercher",df[ad].unique())
         if st.button('AFFICHER LES INFORMATIONS',11):
             df=df[df[ad].isin(adresse)]
-            st.dataframe(df)
-
-
+    return df
+ 
 meubles,appart,terrain=pd.DataFrame(),pd.DataFrame(),pd.DataFrame()
 def charge(data, titre, indice) :
     st.markdown("""
@@ -165,11 +164,28 @@ def appartmeubles(nombre):
 with st.sidebar.header('choix de database'):
     adresse=st.selectbox("Choisissez une la table",("Appartements à louer","Appartements meublés","Terrains à vendre"))
     if adresse.lower()=="Appartements à louer".lower():
-        trie(df1,'Adresse')
+        df=trie(df1,'Adresse')
+        st.dataframe(df)
+        fig = plt.figure(figsize=(10,5), dpi=100)
+        ax = fig.add_subplot(111)
+        ax.pie(df['N_chambre'].value_counts(), labels=df['N_chambre'].unique(), autopct='%1.1f%%',startangle=90,)
+        st.pyplot(fig)
     elif adresse.lower()=="Appartements meublés".lower():
-        trie(df2,'adresse')
+        df=trie(df2,'adresse')
+        st.dataframe(df)
+        fig = plt.figure(figsize=(10,5), dpi=100)
+        ax = fig.add_subplot(111)
+        ax.pie(df['N_chambre'].value_counts(), labels=df['N_chambre'].unique(), autopct='%1.1f%%',startangle=90,)
+        st.pyplot(fig)
     else:
-        trie(df3,'Adresse')
+        df=trie(df3,'Adresse')
+        fig = plt.figure(figsize=(10,5), dpi=100)
+        ax = fig.add_subplot(111)
+        ax.scatter(df['Prix'], df['Superficie'], c='r', marker='o')
+        ax.set_xlabel('Prix')
+        ax.set_ylabel('Superficie')
+        st.pyplot(fig)
+
 
 # Les recherches
 with st.form('RECHERCHE D''INFORMATION'):
