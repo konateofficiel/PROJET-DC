@@ -210,56 +210,29 @@ st.write('                        ')
 DATA=pd.read_csv('data/Dn/Appartements_a_louer.csv')
 DATA2=pd.read_csv('data/Dn/Appartements_meubles.csv')
 DATA3=pd.read_csv('data/Dn/Terrains.csv')
-# Les graphes sur les appartements à louer
 st.markdown("<h3 style='text-align: center; color: black;'>LES GRAPHES SUR LES APPARTEMENTS A LOUER</h3>", unsafe_allow_html=True)
+#diagramme circulaire
 fig = plt.figure(figsize=(10,5), dpi=100)
-ax = fig.add_subplot(111, projection='3d')
-ax.scatter(DATA['Prix'], DATA['Superficie'], DATA['N_chambre'], c='r', marker='o')
-ax.set_xlabel('Prix')
-ax.set_ylabel('Superficie')
-ax.set_zlabel('N_chambre')
-st.pyplot(fig)
-# histogramme sur les appartements à louer
-fig = plt.figure(figsize=(10,5), dpi=60, facecolor='w', edgecolor='k')
 ax = fig.add_subplot(111)
-ax.hist(DATA['Prix'], bins=20)
-ax.set_xlabel('Prix')
-ax.set_ylabel('Frequence')
+ax.pie(DATA['N_chambre'].value_counts(), labels=DATA['N_chambre'].unique(), autopct='%1.1f%%', 
+            startangle=90,)
 st.pyplot(fig)
 
-# les dashboards sur les appartements meublés
 st.markdown("<h3 style='text-align: center; color: black;'>LES GRAPHES SUR LES APPARTEMENTS MEUBLES</h3>", unsafe_allow_html=True)
-fig = plt.figure(figsize=(10,5), dpi=100)
-ax = fig.add_subplot(111, projection='3d')
-ax.scatter(DATA2['prix'], DATA2['Superficie'], DATA2['N_chambre'], c='r', marker='o')
-ax.set_xlabel('prix')
-ax.set_ylabel('Superficie')
-ax.set_zlabel('N_chambre')
-st.pyplot(fig)
-
-# les histogrammes sur les appartements meublés
+#diagramme circulaire
 fig = plt.figure(figsize=(10,5), dpi=100)
 ax = fig.add_subplot(111)
-ax.hist(DATA2['prix'], bins=20)
-ax.set_xlabel('prix')
-ax.set_ylabel('Frequence')
+ax.pie(DATA2['N_chambre'].value_counts(), labels=DATA2['N_chambre'].unique(), autopct='%1.1f%%', 
+            startangle=90,)
 st.pyplot(fig)
 
 # Les graphes sur les terrains à vendre
-st.markdown("<h3 style='text-align: center; color: black;'>LES GRAPHES SUR LES TERRAINS A VENDRE</h3>", unsafe_allow_html=True)
+st.markdown("<h3 style='text-align: center; color: black;'>LE GRAPHE SUR LES TERRAINS A VENDRE</h3>", unsafe_allow_html=True)
 fig = plt.figure(figsize=(10,5), dpi=100)
-ax = fig.add_subplot(111, projection='3d')
+ax = fig.add_subplot(111)
 ax.scatter(DATA3['Prix'], DATA3['Superficie'], c='r', marker='o')
 ax.set_xlabel('Prix')
 ax.set_ylabel('Superficie')
-st.pyplot(fig)
-
-# les histogrammes sur les terrains à vendre
-fig = plt.figure(figsize=(10,5), dpi=100)
-ax = fig.add_subplot(111)
-ax.hist(DATA3['Prix'], bins=20)
-ax.set_xlabel('Prix')
-ax.set_ylabel('Frequence')
 st.pyplot(fig)
 
 #Le formulaire
