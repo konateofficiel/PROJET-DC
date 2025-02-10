@@ -27,6 +27,7 @@ def trie(df,ad):
         adresse=st.sidebar.multiselect("Choisissez une adresse où vous rechercher",df[ad].unique())
         if st.button('AFFICHER LES INFORMATIONS',11):
             df=df[df[ad].isin(adresse)]
+            st.dataframe(df)
     return df
  
 meubles,appart,terrain=pd.DataFrame(),pd.DataFrame(),pd.DataFrame()
@@ -179,6 +180,7 @@ with st.sidebar.header('choix de database'):
         st.pyplot(fig)
     else:
         df=trie(df3,'Adresse')
+        st.dataframe(df)
         fig = plt.figure(figsize=(10,5), dpi=100)
         ax = fig.add_subplot(111)
         ax.scatter(df['Prix'], df['Superficie'], c='r', marker='o')
